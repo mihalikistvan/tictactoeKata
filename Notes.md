@@ -21,5 +21,5 @@
 
 ## Notes about pomodoro 4
 - game() refactoring
-- 
-- 
+- game logic done
+- added prints to help user inputs

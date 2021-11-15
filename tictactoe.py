@@ -33,6 +33,13 @@ def decideOutcome(gameBoard,mark):
 
 def game():
     possibleInputs = ['A1','A2','A3','B1','B2','B3','C1','C2','C3']
+
+    helper={
+            'A1':'A1','A2':'A2','A3':'A3',
+            'B1':'B1','B2':'B2','B3':'B3',
+            'C1':'C1','C2':'C2','C3':'C3'}
+    print ('the gameboard')
+    print(printGameBoard(helper))
     gameboard ={
     'A1':'_','A2':'_','A3':'_',
     'B1':'_','B2':'_','B3':'_',
