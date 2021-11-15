@@ -68,3 +68,11 @@ def test():
     'B1':'X','B2':'_','B3':'_',
     'C1':'X','C2':'_','C3':'_'}
     assert decideOutcome(gameboard,'X') == True
+
+    gameboard ={
+    'A1':'_','A2':'O','A3':'_',
+    'B1':'_','B2':'O','B3':'_',
+    'C1':'_','C2':'O','C3':'_'}
+    assert decideOutcome(gameboard,'X') == False
+    
+   
