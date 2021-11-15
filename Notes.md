@@ -7,8 +7,8 @@
 - first test created
 
 ## Notes about pomodoro 2
-- 
-- 
+- created new test for botChoice()
+- created botChoice function
 - 
 
 ## Notes about pomodoro 3
