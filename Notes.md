@@ -17,7 +17,7 @@
 ## Notes about pomodoro 3
 - created game evaluation
 - created multiple tests
-- 
+- started the game logic
 
 ## Notes about pomodoro 4
 - 
