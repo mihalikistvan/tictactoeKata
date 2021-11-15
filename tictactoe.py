@@ -25,9 +25,20 @@ def printGameBoard(dataSet):
             f" {dataSet['C1']} | {dataSet['C2']} | {dataSet['C3']} "
 
 def decideOutcome(gameBoard,mark):
-
+    possibleWins = {
+       1:['A1','A2','A3'],
+       2:['B1','B2','B3'],
+       3:['C1','C2','C3'],
+       4:['A1','B1','C1'],
+       5:['A2','B2','C2'],
+       6:['A3','B3','C3'],
+       7:['A1','B2','C3'],
+       8:['A3','B2','C1'] 
+    }
+    for possibleWin in possibleWins:
+        if gameBoard[possibleWins[possibleWin][0]] == gameBoard[possibleWins[possibleWin][1]] == gameBoard[possibleWins[possibleWin][2]] == mark:
+            return True
     return False
-
 
 def test():
     assert game() in ['winner: you', 'winner: bot', 'tie']
@@ -56,4 +67,4 @@ def test():
     'A1':'X','A2':'_','A3':'_',
     'B1':'X','B2':'_','B3':'_',
     'C1':'X','C2':'_','C3':'_'}
-    assert userChoice(gameboard,'X') == True
+    assert decideOutcome(gameboard,'X') == True
