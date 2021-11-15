@@ -3,6 +3,7 @@
 - Created test file
 - Created notes, techdebt and readme
 - filled readme
+- first function: game() created
 
 ## Notes about pomodoro 2
 - 
