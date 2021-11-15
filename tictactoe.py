@@ -1,34 +1,4 @@
 import random
-def game():
-    possibleInputs = ['A1','A2','A3','B1','B2','B3','C1','C2','C3']
-    gameboard ={
-    'A1':'_','A2':'_','A3':'_',
-    'B1':'_','B2':'_','B3':'_',
-    'C1':'_','C2':'_','C3':'_'}
-
-    gameIsRunning = True
-    userTurn = True
-
-    while gameIsRunning == True:
-        if userTurn == True:
-            isPossibleInput = True
-            while isPossibleInput == True:
-                userInput = input()
-                if userChoice(possibleInputs,userInput) == True:
-                    possibleInputs.remove(userInput)
-                    gameboard[userInput] = 'X'
-                    isPossibleInput = True
-            userTurn = False
-        else:
-            possibleInputs = botChoice(possibleInputs)
-            for i in gameboard:
-                if i not in possibleInputs:
-                    gameboard[i] = 'O'
-            userTurn = True
-
-
-    winner = 'bot'
-    return f'winner: {winner}'
 
 def botChoice(possibleInputs):
     possibleInputs.remove(random.choice(possibleInputs))
@@ -60,6 +30,48 @@ def decideOutcome(gameBoard,mark):
         if gameBoard[possibleWins[possibleWin][0]] == gameBoard[possibleWins[possibleWin][1]] == gameBoard[possibleWins[possibleWin][2]] == mark:
             return True
     return False
+
+def game():
+    possibleInputs = ['A1','A2','A3','B1','B2','B3','C1','C2','C3']
+    gameboard ={
+    'A1':'_','A2':'_','A3':'_',
+    'B1':'_','B2':'_','B3':'_',
+    'C1':'_','C2':'_','C3':'_'}
+
+    gameIsRunning = True
+    userTurn = True
+
+    while gameIsRunning == True:
+        if userTurn == True:
+            isPossibleInput = True
+            while isPossibleInput == True:
+                userInput = input()
+                if userChoice(possibleInputs,userInput) == True:
+                    print ('ok')
+                    possibleInputs.remove(userInput)
+                    gameboard[userInput] = 'X'
+                    isPossibleInput = False
+            userTurn = False
+        else:
+            print ('bot')
+            possibleInputs = botChoice(possibleInputs)
+            for i in gameboard:
+                if i not in possibleInputs:
+
+                    gameboard[i] = 'O'
+            userTurn = True
+    
+        print(printGameBoard(gameboard))
+
+    if decideOutcome(gameboard,'X'):
+        return f'winner: you'
+    if decideOutcome(gameboard,'O'):
+        return f'winner: bot'
+    if len(possibleInputs) == 0:
+        return f'tie'
+
+    
+
 
 def test():
     assert game() in ['winner: you', 'winner: bot', 'tie']
