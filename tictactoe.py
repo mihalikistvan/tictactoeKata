@@ -40,38 +40,44 @@ def game():
 
     gameIsRunning = True
     userTurn = True
-
-    while gameIsRunning == True:
-        if userTurn == True:
+    print ('start of game')
+    while gameIsRunning:
+        if userTurn:
             isPossibleInput = True
-            while isPossibleInput == True:
+            while isPossibleInput:
+                print ('please insert a coordinate')
                 userInput = input()
-                if userChoice(possibleInputs,userInput) == True:
-                    print ('ok')
+                if userChoice(possibleInputs,userInput):
                     possibleInputs.remove(userInput)
                     gameboard[userInput] = 'X'
                     isPossibleInput = False
+                else:
+                    print ('not valid')
             userTurn = False
         else:
-
+            print()
+            print ('bots choice:')
             possibleInputs = botChoice(possibleInputs)
             for i in gameboard:
                 if i not in possibleInputs:
-
-                    gameboard[i] = 'O'
+                    if gameboard[i] not in ['X','O']: 
+                        gameboard[i] = 'O'
             userTurn = True
     
         print(printGameBoard(gameboard))
 
-    if decideOutcome(gameboard,'X'):
-        return f'winner: you'
-    if decideOutcome(gameboard,'O'):
-        return f'winner: bot'
-    if len(possibleInputs) == 0:
-        return f'tie'
+        if decideOutcome(gameboard,'X'):
+            gameIsRunning = False
+            return f'winner: you'
+        if decideOutcome(gameboard,'O'):
+            gameIsRunning = False
+            return f'winner: bot'
+        if len(possibleInputs) == 0:
+            gameIsRunning = False
+            return f'tie'
 
     
-
+print (game())
 
 def test():
     assert game() in ['winner: you', 'winner: bot', 'tie']
