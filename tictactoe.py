@@ -19,3 +19,4 @@ def test():
     assert botChoice(['A1']) == []
     assert botChoice(['A1','A2']) in [['A1'],  ['A2']]
     assert userChoice(['A1'],'A1') == True
+    assert userChoice(['A2'],'A1') == False
