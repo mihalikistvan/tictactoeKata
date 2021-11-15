@@ -8,8 +8,9 @@
 
 ## Notes about pomodoro 2
 - created new test for botChoice()
-- created botChoice function
-- 
+- created botChoice function 
+-created userChoice function
+- rewritten the pytest, as syntax issues came up
 
 ## Notes about pomodoro 3
 - 
