@@ -20,3 +20,4 @@
 - botchoice
 - userchoice
 - boardprint
+- game evaluation

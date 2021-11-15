@@ -15,8 +15,8 @@
 - test for gametable printing
 
 ## Notes about pomodoro 3
-- 
-- 
+- created game evaluation
+- created multiple tests
 - 
 
 ## Notes about pomodoro 4
