@@ -1,5 +1,5 @@
 import random
-
+import time
 def botChoice(possibleInputs):
     possibleInputs.remove(random.choice(possibleInputs))
     return possibleInputs
@@ -49,6 +49,7 @@ def game():
     userTurn = True
     print ('start of game')
     while gameIsRunning:
+        time.sleep(2)
         if userTurn:
             isPossibleInput = True
             while isPossibleInput:
@@ -84,56 +85,55 @@ def game():
             return f'tie'
 
 
-print (game())
-def test():
-    assert game() in ['winner: you', 'winner: bot', 'tie']
-    assert botChoice(['A1']) == []
-    assert botChoice(['A1','A2']) in [['A1'],  ['A2']]
-    assert userChoice(['A1'],'A1') == True
-    assert userChoice(['A2'],'A1') == False
-    
+def game2():
+    possibleInputs = ['A1','A2','A3','B1','B2','B3','C1','C2','C3']
+
+    helper={
+            'A1':'A1','A2':'A2','A3':'A3',
+            'B1':'B1','B2':'B2','B3':'B3',
+            'C1':'C1','C2':'C2','C3':'C3'}
+    print ('the gameboard')
+    print(printGameBoard(helper))
     gameboard ={
     'A1':'_','A2':'_','A3':'_',
     'B1':'_','B2':'_','B3':'_',
     'C1':'_','C2':'_','C3':'_'}
-    assert printGameBoard(gameboard) == f" _ | _ | _ \n"\
-                                        f" _ | _ | _ \n"\
-                                        f" _ | _ | _ "
 
-    gameboard ={
-    'A1':'X','A2':'_','A3':'_',
-    'B1':'X','B2':'_','B3':'_',
-    'C1':'X','C2':'_','C3':'_'}
-    assert printGameBoard(gameboard) == f" X | _ | _ \n"\
-                                        f" X | _ | _ \n"\
-                                        f" X | _ | _ "
-
-    gameboard ={
-    'A1':'X','A2':'_','A3':'_',
-    'B1':'X','B2':'_','B3':'_',
-    'C1':'X','C2':'_','C3':'_'}
-    assert decideOutcome(gameboard,'X') == True
-
-    gameboard ={
-    'A1':'_','A2':'O','A3':'_',
-    'B1':'_','B2':'O','B3':'_',
-    'C1':'_','C2':'O','C3':'_'}
-    assert decideOutcome(gameboard,'X') == False
+    gameIsRunning = True
+    bot1Turn = True
+    print ('start of game')
+    while gameIsRunning:
+        time.sleep(2)
+        if bot1Turn:
+            print()
+            print ('bot1 choice:')
+            possibleInputs = botChoice(possibleInputs)
+            for i in gameboard:
+                if i not in possibleInputs:
+                    if gameboard[i] not in ['X','O']: 
+                        gameboard[i] = 'X'
+            bot1Turn = False
+        else:
+            print()
+            print ('bot2 choice:')
+            possibleInputs = botChoice(possibleInputs)
+            for i in gameboard:
+                if i not in possibleInputs:
+                    if gameboard[i] not in ['X','O']: 
+                        gameboard[i] = 'O'
+            bot1Turn = True
     
-    gameboard ={
-    'A1':'_','A2':'O','A3':'_',
-    'B1':'_','B2':'O','B3':'_',
-    'C1':'_','C2':'O','C3':'_'}
-    assert decideOutcome(gameboard,'O') == True
-    
-    gameboard ={
-    'A1':'X','A2':'_','A3':'X',
-    'B1':'X','B2':'O','B3':'_',
-    'C1':'X','C2':'_','C3':'_'}
-    assert decideOutcome(gameboard,'X') == True
+        print(printGameBoard(gameboard))
 
-    gameboard ={
-    'A1':'_','A2':'_','A3':'X',
-    'B1':'_','B2':'X','B3':'_',
-    'C1':'X','C2':'_','C3':'_'}
-    assert decideOutcome(gameboard,'X') == True
+        if decideOutcome(gameboard,'X'):
+            gameIsRunning = False
+            return f'winner: bot1'
+        if decideOutcome(gameboard,'O'):
+            gameIsRunning = False
+            return f'winner: bot2'
+        if len(possibleInputs) == 0:
+            gameIsRunning = False
+            return f'tie'
+
+
+print(game2())
