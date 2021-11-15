@@ -36,3 +36,11 @@ def test():
     assert printGameBoard(gameboard) == f" _ | _ | _ \n"\
                                         f" _ | _ | _ \n"\
                                         f" _ | _ | _ "
+
+    gameboard ={
+    'A1':'X','A2':'_','A3':'_',
+    'B1':'X','B2':'_','B3':'_',
+    'C1':'X','C2':'_','C3':'_'}
+    assert printGameBoard(gameboard) == f" X | _ | _ \n"\
+                                        f" X | _ | _ \n"\
+                                        f" X | _ | _ "
