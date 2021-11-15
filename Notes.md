@@ -11,6 +11,8 @@
 - created botChoice function 
 -created userChoice function
 - rewritten the pytest, as syntax issues came up
+- printing gametable function 
+- test for gametable printing
 
 ## Notes about pomodoro 3
 - 

@@ -17,3 +17,6 @@
 
 ## Milestones
 
+- botchoice
+- userchoice
+- boardprint

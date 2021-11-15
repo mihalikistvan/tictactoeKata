@@ -15,7 +15,9 @@ def userChoice(possibleInputs,choice):
         return False
 
 def printGameBoard(dataSet):
-    return False
+    return  f" {dataSet['A1']} | {dataSet['A2']} | {dataSet['A3']} \n"\
+            f" {dataSet['B1']} | {dataSet['B2']} | {dataSet['B3']} \n"\
+            f" {dataSet['C1']} | {dataSet['C2']} | {dataSet['C3']} "
 
 
 
