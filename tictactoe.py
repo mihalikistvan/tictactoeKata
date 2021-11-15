@@ -9,10 +9,13 @@ def botChoice(possibleInputs):
     return possibleInputs
 
 def userChoice(possibleInputs,choice):
-    return False
+    if choice in possibleInputs:
+        return True
+    else:
+        return False
     
 def test():
-    assert game() == 'winner: you' or game()  == 'winner: bot' or game() == 'tie'
+    assert game() in ['winner: you', 'winner: bot', 'tie']
     assert botChoice(['A1']) == []
-    assert botChoice(['A1','A2']) == ['A1'] or botChoice(['A1','A2']) == ['A2']
+    assert botChoice(['A1','A2']) in [['A1'],  ['A2']]
     assert userChoice(['A1'],'A1') == True
