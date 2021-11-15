@@ -4,3 +4,4 @@
 - implemented a function to handle user selections
 - implemented function to evaluate winner based on possible winning choices
 - after working on game() logic, had to refactor the function
+- refactored for clean code

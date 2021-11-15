@@ -22,4 +22,4 @@
 - boardprint
 - game evaluation
 - started game function writing, the first test failed, so retructured the game()
-- end product:
+- end product: game playable in command line

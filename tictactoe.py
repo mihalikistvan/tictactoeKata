@@ -83,8 +83,6 @@ def game():
             gameIsRunning = False
             return f'tie'
 
-    
-print (game())
 
 def test():
     assert game() in ['winner: you', 'winner: bot', 'tie']
