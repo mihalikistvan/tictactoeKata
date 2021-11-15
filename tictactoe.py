@@ -6,6 +6,27 @@ def game():
     'B1':'_','B2':'_','B3':'_',
     'C1':'_','C2':'_','C3':'_'}
 
+    gameIsRunning = True
+    userTurn = True
+
+    while gameIsRunning == True:
+        if userTurn == True:
+            isPossibleInput = True
+            while isPossibleInput == True:
+                userInput = input()
+                if userChoice(possibleInputs,userInput) == True:
+                    possibleInputs.remove(userInput)
+                    gameboard[userInput] = 'X'
+                    isPossibleInput = True
+            userTurn = False
+        else:
+            possibleInputs = botChoice(possibleInputs)
+            for i in gameboard:
+                if i not in possibleInputs:
+                    gameboard[i] = 'O'
+            userTurn = True
+
+
     winner = 'bot'
     return f'winner: {winner}'
 
