@@ -53,7 +53,7 @@ def game():
                     isPossibleInput = False
             userTurn = False
         else:
-            print ('bot')
+
             possibleInputs = botChoice(possibleInputs)
             for i in gameboard:
                 if i not in possibleInputs:

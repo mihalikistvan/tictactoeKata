@@ -20,6 +20,6 @@
 - started the game logic
 
 ## Notes about pomodoro 4
-- 
+- game() refactoring
 - 
 - 
