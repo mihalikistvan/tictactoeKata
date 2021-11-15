@@ -1,6 +1,11 @@
 import random
 def game():
     possibleInputs = ['A1','A2','A3','B1','B2','B3','C1','C2','C3']
+    gameboard ={
+    'A1':'_','A2':'_','A3':'_',
+    'B1':'_','B2':'_','B3':'_',
+    'C1':'_','C2':'_','C3':'_'}
+
     winner = 'bot'
     return f'winner: {winner}'
 
@@ -19,7 +24,9 @@ def printGameBoard(dataSet):
             f" {dataSet['B1']} | {dataSet['B2']} | {dataSet['B3']} \n"\
             f" {dataSet['C1']} | {dataSet['C2']} | {dataSet['C3']} "
 
+def decideOutcome(gameBoard,mark):
 
+    return False
 
 
 def test():
@@ -44,3 +51,9 @@ def test():
     assert printGameBoard(gameboard) == f" X | _ | _ \n"\
                                         f" X | _ | _ \n"\
                                         f" X | _ | _ "
+
+    gameboard ={
+    'A1':'X','A2':'_','A3':'_',
+    'B1':'X','B2':'_','B3':'_',
+    'C1':'X','C2':'_','C3':'_'}
+    assert userChoice(gameboard,'X') == True
